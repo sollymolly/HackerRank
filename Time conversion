@@ -1,0 +1,44 @@
+#!/bin/python3
+
+import os
+import sys
+
+#
+# Complete the timeConversion function below.
+#
+def timeConversion(s):
+    #
+    # Write your code here.
+    #
+    if s[0:2] == '12' and s[8:10] == 'AM':
+        first = '00'
+        second = s[2:8]
+        answer = (first + second)
+    elif s[0:2] == '12' and s[8:10] == 'PM':
+        answer = s[0:8]
+    elif s[8:10] == 'PM':
+        first = s[0:2]
+        second = s[2:8]
+        third = str(int(first) + 12)
+        answer = third + second
+    else:
+        answer = s[0:8]
+    
+    return answer
+
+
+
+    
+        
+
+
+if __name__ == '__main__':
+    f = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = timeConversion(s)
+
+    f.write(result + '\n')
+
+    f.close()
