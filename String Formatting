@@ -1,0 +1,29 @@
+decimal = 1
+
+octal = 1
+
+hexadecimal = 1
+
+binary = 1
+
+width = len(format(n, 'b'))
+
+for i in range(0, n):
+
+    a = format(decimal).rjust(width, ' ')
+
+    b = format(octal, 'o').rjust(width, ' ')
+
+    c = format(hexadecimal, 'X').rjust(width, ' ')
+  
+    d = format(binary, 'b').rjust(width, ' ')
+
+    print('{} {} {} {}'.format(a, b, c, d))
+
+    decimal += 1
+    
+    octal += 1
+
+    hexadecimal += 1
+
+    binary += 1
