@@ -1,0 +1,20 @@
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
+string = '-' * (4 * size - 3)
+index = 2 * size - 1
+index_arr = len(arr) 
+index_string = len(string)
+thing = index_string/2
+pos_index = 1
+neg_index = -1
+number = 1
+num = 0
+arr = []
+# making arr
+for i in range(index):
+    arr.append(string[num])
+    num += 2
+while string[0] == '-':
+    # the outside of rangoli
+    for h in range(number):
+        print(string.replace(string[round(index_string/2)], alphabet[size]))
+        number += 2
