@@ -9,19 +9,21 @@ import sys
 # Complete the kangaroo function below.
 def kangaroo(x1, v1, x2, v2):
     #boolean variable
-    x = False
+    boolean = False
     #the worst case scenario
     if x2 > x1 and v2 > v1:
         return 'NO'
     elif x1 > x2 and v1 > v2:
         return 'NO'
+    elif x1 > x2 and v1 == v2 or x1 < x2 and v1 == v2:
+        return 'NO'
 
     #if it starts out with x1 greater than x2, 
     if x1 > x2:
-        while x1 > x2:
+        while x1 > x2 + 1:
             #if x1 = x2
             if x1 == x2:
-                x = True
+                boolean = True
                 return 'YES'
                 break
             
@@ -30,24 +32,24 @@ def kangaroo(x1, v1, x2, v2):
             print(x1)
             x2 += v2
             print(x2)
-        if x == False:
+        if boolean == False:
             return 'NO'
         
         
 
     #if it starts out with x1 less than x2, 
     if x1 < x2:
-        while x1 < x2:
+        while x1 < x2 + 1:
             #if x1 = x2
             if x1 == x2:
-                x = True
+                boolean = True
                 return 'YES'
                 break
             
             #adding x1 and x2.
             x1 += v1
             x2 += v2
-        if x == False:
+        if boolean == False:
             return 'NO'
        
 
