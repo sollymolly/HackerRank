@@ -1,0 +1,13 @@
+def breakingRecords(scores):
+    maxi = scores[0]
+    mini = scores[0]
+    res_max = 0
+    res_min = 0
+    for i in range(n):
+        if scores[i] > maxi:
+            res_max += 1
+            maxi = scores[i]
+        if scores[i] < mini:
+            res_min += 1
+            mini = scores[i]
+    return res_max, res_min
