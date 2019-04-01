@@ -1,0 +1,55 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the caesarCipher function below.
+def caesarCipher(s, k):
+    alphabet_low = 'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz'
+    alphabet_up = 'ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    new_str = ''
+    index = 0
+    bolle = True
+    for i in range(len(s)):
+        if s[i] in alphabet_low:
+            for j in range(len(alphabet_low)):
+                if s[i] == alphabet_low[j]:
+                    index = int(alphabet_low.find(s[i])) % 26
+                    new_str += alphabet_low[index+k%26]
+                    bolle = False
+                    break
+            if bolle:    
+                new_str += s[i]
+            bolle = True
+        elif s[i] in alphabet_up:
+            for j in range(len(alphabet_up)):
+                if s[i] == alphabet_up[j]:
+                    index = int(alphabet_up.find(s[i]))
+                    new_str += alphabet_up[index+k%26]
+                    bolle = False
+                    break
+            if bolle:    
+                new_str += s[i]
+            bolle = True
+        else:
+            new_str += s[i]
+    return new_str
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    s = input()
+
+    k = int(input())
+
+    result = caesarCipher(s, k)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
