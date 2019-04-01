@@ -17,7 +17,7 @@ def caesarCipher(s, k):
         if s[i] in alphabet_low:
             for j in range(len(alphabet_low)):
                 if s[i] == alphabet_low[j]:
-                    index = int(alphabet_low.find(s[i])) % 26
+                    index = int(alphabet_low.find(s[i]))
                     new_str += alphabet_low[index+k%26]
                     bolle = False
                     break
