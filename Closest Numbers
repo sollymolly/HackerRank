@@ -1,0 +1,13 @@
+n = int(input())
+arr = input().split()
+for j in range(len(arr)):
+    arr[j] = int(arr[j])
+arr = sorted(arr)
+res = []
+for i in range(len(arr)-1):
+    res.append(int(arr[i+1])-int(arr[i]))
+mini = min(res)
+for k, val in enumerate(res):
+    if val == mini:
+        print(arr[k], end=' ')
+        print(arr[k+1], end=' ')
