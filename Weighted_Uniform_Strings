@@ -1,0 +1,50 @@
+import string
+
+def check_divisibility(num):
+    n = 26
+    for _ in range(26):
+        if num % n == 0:
+            return n
+        n -= 1
+    return False
+
+def solve(number, s_str, s_arr, ar_values):
+    letter = ''
+    num_for = 0
+    another_num = 0
+    if number > 26:
+        if check_divisibility(number) == False:
+            return 'No'
+        else:
+            for tup in ar_values:
+                if tup[1] == check_divisibility(number):
+                    letter = tup[0]
+                    break
+            num_for = s_str.count('letter')
+            another_num = number // check_divisibility(number)
+            if another_num <= num_for:
+                return "Yes"
+    else: 
+        if 
+
+
+            
+
+
+
+
+s_str, alphabet = input(), string.ascii_lowercase
+queries = []
+index = 1
+ar_values = []
+for i in range(26):
+    ar_values.append((alpha[i], index))
+    index += 1
+for _ in range(int(input())):
+    queries.append(int(input())):
+s_arr = sorted(s_str)
+for j in range(len(queries)):
+    print(solve(queries[j], s_str, s_arr, ar_values))
+
+
+
