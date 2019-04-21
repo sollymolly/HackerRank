@@ -1,0 +1,40 @@
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the checkMagazine function below.
+def checkMagazine(magazine, note):
+    ht = {}
+    for c in magazine:
+        if c in ht:
+            ht[c] += 1
+        else: 
+            ht[c] = 1
+    for i in note:
+        if i in ht:
+            ht[i] -= 1
+        else:
+            print("No")
+            return
+    for key in ht:
+        if ht[key] < 0:
+            print("No")
+            return 
+    print("Yes")
+    
+
+if __name__ == '__main__':
+    mn = input().split()
+
+    m = int(mn[0])
+
+    n = int(mn[1])
+
+    magazine = input().rstrip().split()
+
+    note = input().rstrip().split()
+
+    checkMagazine(magazine, note)
