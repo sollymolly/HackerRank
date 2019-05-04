@@ -1,0 +1,47 @@
+#!/bin/python3
+
+import os
+import sys
+
+#
+# Complete the gradingStudents function below.
+
+def solve(num):
+    imp = 0
+    if num < 38:
+        return num
+    else:
+        while True:
+            imp += 1
+            num += 1
+            if num % 5 == 0:
+                break
+        if imp < 3:
+            return num
+        else:
+            num -= imp
+            return num
+def gradingStudents(grades):
+    ar = []
+    for i in range(len(grades)):
+        ar.append(solve(grades[i]))
+    return ar
+
+
+if __name__ == '__main__':
+    f = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    grades = []
+
+    for _ in range(n):
+        grades_item = int(input())
+        grades.append(grades_item)
+
+    result = gradingStudents(grades)
+
+    f.write('\n'.join(map(str, result)))
+    f.write('\n')
+
+    f.close()
