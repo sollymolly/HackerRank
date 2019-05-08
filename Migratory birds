@@ -1,0 +1,37 @@
+#!/bin/python3
+from collections import Counter
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the migratoryBirds function below.
+def migratoryBirds(arr):
+    dict = Counter(arr)
+    maximum, mini, check = 0, 0, 0
+    for key, value in dict.items():
+        if value > maximum:
+            maximum = value
+    for i in dict.items():
+        if i[1] == maximum:
+            check += 1
+            if check > 1:
+                if i[0] < mini:
+                    mini = i[0]
+            else:
+                mini = i[0]
+    return mini
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    arr_count = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = migratoryBirds(arr)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
